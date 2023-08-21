@@ -18,7 +18,6 @@ public class HWTest {
     private static final Logger LOGGER = LogManager.getLogger(HWTest.class);
     private WebDriver driver;
 
-
     @BeforeAll
     public static void webDriverSetup() {
         WebDriverManager.chromedriver().setup();
@@ -42,9 +41,9 @@ public class HWTest {
         WebElement searchBox = driver.findElement(By.name("q"));
         searchBox.sendKeys("ОТУС");
         searchBox.submit();
-        WebElement firstResult = driver.findElement(By.xpath(
-                "//article[@id=\"r1-0\"]//span[@class=\"EKtkFWMYpwzMKOYr0GYm LQVY1Jpkk8nyJ6HBWKAk\"]"));
 
+        WebElement firstResult = driver.findElement(By.xpath(
+                "//article[@id=\"r1-0\"]"));
         String actual = firstResult.getText();
         LOGGER.info("Первый результат поиска: " + actual);
 
@@ -60,7 +59,7 @@ public class HWTest {
         WebElement image = driver.findElement(By.xpath("(//a[@class=\"image-zoom\"])[1]"));
         image.click();
 
-        WebElement modal = driver.findElement(By.xpath("//div[@class=\"pp_pic_holder light_rounded\"]"));
+        WebElement modal = driver.findElement(By.xpath("//div[@class=\"pp_overlay\"]"));
         assertThat(modal.isDisplayed()).isTrue();
     }
 
