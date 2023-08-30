@@ -68,7 +68,7 @@ public class HWTest {
         driver = new ChromeDriver();
 
         driver.get("https://otus.ru");
-        WebElement loginButton = driver.findElement(By.xpath("//button[@class=\"sc-mrx253-0 enxKCy sc-945rct-0 iOoJwQ\"]"));
+        WebElement loginButton = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[1]/div[1]/div/section/div[1]/button"));
         loginButton.click();
 
         WebElement usernameField = driver.findElement(By.xpath("(//input[@required])[1]"));
